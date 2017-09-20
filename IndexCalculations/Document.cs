@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -16,11 +17,12 @@ namespace IndexCalculations
 
         public string GetCleanText()
         {
+            // TODO Redo this Method from scratch
             StringBuilder sb = new StringBuilder();
 
             foreach (char c in _text)
             {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ' || c == '\n')
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ' || c == '\n' || c == 'ü' || c == 'ä' || c == 'ö')
                 {
                     if (c == '\n')
                     {
@@ -38,20 +40,17 @@ namespace IndexCalculations
 
         }
 
-        public string[] GetIndividualTermsInList()
+        public HashSet<String> GetUniqueTermsInSet()
         {
-            // TODO
-            // need to change Array to List
-            string[] IndividualTerms = (this.GetCleanText()).ToLower().Split(' ');
-
+            HashSet<String> IndividualTerms = new HashSet<String>((this.GetCleanText()).ToLower().Split(' '));
             return IndividualTerms;
         }
 
 
         public int CalculateNumberOfTerms()
         {
-            string[] IndividualTerms = this.GetIndividualTermsInList();
-            int _numberOfTerms = IndividualTerms.Length;
+            HashSet<String> UniqueIndividualTerms = this.GetUniqueTermsInSet();
+            int _numberOfTerms = UniqueIndividualTerms.Count;
             return _numberOfTerms;  
         }
 

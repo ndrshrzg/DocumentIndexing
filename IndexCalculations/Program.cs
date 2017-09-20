@@ -24,7 +24,7 @@ namespace IndexCalculations
         public static void WriteListElementsToConsole()
         {
             Document testDoc = new Document("C:\\testdata\\1700048_1_Beck_Volker.txt");
-            foreach (string word in testDoc.GetIndividualTermsInList())
+            foreach (string word in testDoc.GetUniqueTermsInSet())
             {
                 Console.WriteLine(word);
             }
@@ -37,7 +37,7 @@ namespace IndexCalculations
             Document testDoc = new Document("C:\\testdata\\1700048_1_Beck_Volker.txt");
             int len = testDoc.CalculateNumberOfTerms();
 
-            Console.WriteLine("Number of non-unique elements: {0}", len.ToString());
+            Console.WriteLine("Number of unique elements: {0}", len.ToString());
             Console.ReadLine();
         }
     }
