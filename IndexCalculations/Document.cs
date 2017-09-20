@@ -29,7 +29,6 @@ namespace IndexCalculations
                     else
                     {
                         sb.Append(c);
-
                     }
                 }
 
@@ -37,21 +36,24 @@ namespace IndexCalculations
 
             return sb.ToString();
 
-
         }
 
         public string[] GetIndividualTermsInList()
         {
+            // TODO
+            // need to change Array to List
             string[] IndividualTerms = (this.GetCleanText()).ToLower().Split(' ');
 
             return IndividualTerms;
         }
 
 
-        //public int CalculateNumberOfTerms()
-        //{
-        //    _text.
-        //}
+        public int CalculateNumberOfTerms()
+        {
+            string[] IndividualTerms = this.GetIndividualTermsInList();
+            int _numberOfTerms = IndividualTerms.Length;
+            return _numberOfTerms;  
+        }
 
     }
 }

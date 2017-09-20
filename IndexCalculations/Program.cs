@@ -8,6 +8,7 @@ namespace IndexCalculations
         {
             //WriteCleanTextToConsole();
             WriteListElementsToConsole();
+            WriteNumberOfElementsToConsole();
         }
 
 
@@ -27,6 +28,16 @@ namespace IndexCalculations
             {
                 Console.WriteLine(word);
             }
+            Console.ReadLine();
+        }
+
+
+        public static void WriteNumberOfElementsToConsole()
+        {
+            Document testDoc = new Document("C:\\testdata\\1700048_1_Beck_Volker.txt");
+            int len = testDoc.CalculateNumberOfTerms();
+
+            Console.WriteLine("Number of non-unique elements: {0}", len.ToString());
             Console.ReadLine();
         }
     }
