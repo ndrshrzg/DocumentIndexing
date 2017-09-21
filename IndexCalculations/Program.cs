@@ -7,7 +7,7 @@ namespace IndexCalculations
         static void Main(string[] args)
         {
             //WriteCleanTextToConsole();
-            WriteListElementsToConsole();
+            //WriteListElementsToConsole();
             WriteNumberOfElementsToConsole();
         }
 

@@ -17,26 +17,16 @@ namespace IndexCalculations
 
         public string GetCleanText()
         {
-            // TODO Redo this Method from scratch
-            StringBuilder sb = new StringBuilder();
+            // credit patel.milanb
+            string removeChars = "?&^$#@!()+-,:;<>’\'-_*.\"";
+            string result = this._text;
 
-            foreach (char c in _text)
+            foreach (char c in removeChars)
             {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ' || c == '\n' || c == 'ü' || c == 'ä' || c == 'ö')
-                {
-                    if (c == '\n')
-                    {
-                        sb.Append(' ');
-                    }
-                    else
-                    {
-                        sb.Append(c);
-                    }
-                }
-
+                result = result.Replace(c.ToString(), string.Empty);
             }
 
-            return sb.ToString();
+            return result;
 
         }
 
